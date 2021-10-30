@@ -43,13 +43,14 @@ class SmartServerU extends CbjHubServiceBase {
         clientRequests,
       );
 
-      yield* hubRequests.stream.handleError((error) {
-        if (error is GrpcError && error.code == 1) {
-          logger.v('Client have disconnected');
-        } else {
-          logger.e('Client stream error: $error');
-        }
-      });
+      yield* hubRequests.stream;
+      //     .handleError((error) {
+      //   if (error is GrpcError && error.code == 1) {
+      //     logger.v('Client have disconnected');
+      //   } else {
+      //     logger.e('Client stream error: $error');
+      //   }
+      // });
     } catch (e) {
       logger.e('Client Client error $e');
     }
@@ -93,13 +94,14 @@ class SmartServerU extends CbjHubServiceBase {
         hubRequests,
       );
 
-      yield* clientRequests.stream.handleError((error) {
-        if (error is GrpcError && error.code == 1) {
-          logger.v('Client have disconnected');
-        } else {
-          logger.e('Client stream error: $error');
-        }
-      });
+      yield* clientRequests.stream;
+      //     .handleError((error) {
+      //   if (error is GrpcError && error.code == 1) {
+      //     logger.v('Hub have disconnected');
+      //   } else {
+      //     logger.e('Hub stream error: $error');
+      //   }
+      // });
     } catch (e) {
       logger.e('Register Hub error $e');
     }
