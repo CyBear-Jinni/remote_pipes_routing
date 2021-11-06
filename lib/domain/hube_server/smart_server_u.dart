@@ -14,18 +14,32 @@ class SmartServerU extends CbjHubServiceBase {
   ) async* {
     logger.v('RegisterClient have been called');
 
-    final Map<String, String>? a = call.clientMetadata;
-    final String fullUrl = a![':authority']!;
+    final Map<String, String>? metadata = call.clientMetadata;
+    final String fullUrl = metadata![':authority']!;
 
-    final String? domainName;
+    String? domainName;
 
-    if (fullUrl.contains(':')) {
-      domainName = fullUrl.substring(0, fullUrl.indexOf(':'));
-    } else if (fullUrl.contains('\\')) {
-      domainName = fullUrl.substring(0, fullUrl.indexOf('\\'));
+    if (fullUrl.contains('http')) {
+      domainName = fullUrl.substring(fullUrl.indexOf('//') + 2, fullUrl.length);
     } else {
-      logger.e('Error in the url processing of $fullUrl');
+      domainName = fullUrl;
+    }
+
+    if (domainName.contains(':')) {
+      domainName = domainName.substring(0, domainName.indexOf(':'));
+    } else if (domainName.contains('\\')) {
+      domainName = domainName.substring(0, domainName.indexOf('\\'));
+    } else {
+      logger.e('Error in the url processing of $domainName');
       return;
+    }
+
+    if (domainName.contains('.')) {
+      domainName = domainName.substring(0, domainName.lastIndexOf('.'));
+    }
+
+    if (domainName.contains('.')) {
+      domainName = domainName.substring(0, domainName.lastIndexOf('.'));
     }
 
     try {
@@ -66,16 +80,33 @@ class SmartServerU extends CbjHubServiceBase {
     final Map<String, String>? a = call.clientMetadata;
     final String fullUrl = a![':authority']!;
 
-    final String? domainName;
+    String? domainName;
 
-    if (fullUrl.contains(':')) {
-      domainName = fullUrl.substring(0, fullUrl.indexOf(':'));
-    } else if (fullUrl.contains('\\')) {
-      domainName = fullUrl.substring(0, fullUrl.indexOf('\\'));
+    if (fullUrl.contains('http')) {
+      domainName = fullUrl.substring(fullUrl.indexOf('//') + 2, fullUrl.length);
     } else {
-      logger.e('Error in the url processing of $fullUrl');
+      domainName = fullUrl;
+    }
+
+    if (domainName.contains(':')) {
+      domainName = domainName.substring(0, domainName.indexOf(':'));
+    } else if (domainName.contains('\\')) {
+      domainName = domainName.substring(0, domainName.indexOf('\\'));
+    } else {
+      logger.e('Error in the url processing of $domainName');
       return;
     }
+
+    if (domainName.contains('.')) {
+      domainName = domainName.substring(0, domainName.lastIndexOf('.'));
+    }
+
+    if (domainName.contains('.')) {
+      domainName = domainName.substring(0, domainName.lastIndexOf('.'));
+    }
+
+    logger.w('FullUrl name is $fullUrl');
+    logger.w('Domain name is $domainName');
 
     logger.v('RegisterHub have been called');
 
