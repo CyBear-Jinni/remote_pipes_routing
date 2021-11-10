@@ -20,5 +20,5 @@ COPY --from=build /runtime/ /
 COPY --from=build /app/bin/cbj_remote_pipes_router /app/bin/
 
 # Start cbj_remote_pipes.
-EXPOSE 8080
+EXPOSE 50056
 CMD ["/app/bin/cbj_remote_pipes_router"]
