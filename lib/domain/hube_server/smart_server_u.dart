@@ -42,6 +42,9 @@ class SmartServerU extends CbjHubServiceBase {
       domainName = domainName.substring(0, domainName.lastIndexOf('.'));
     }
 
+    logger.w('Client FullUrl name is $fullUrl');
+    logger.w('Client Domain name is $domainName');
+
     try {
       final StreamController<ClientStatusRequests> clientRequests =
           StreamController<ClientStatusRequests>();
@@ -105,10 +108,8 @@ class SmartServerU extends CbjHubServiceBase {
       domainName = domainName.substring(0, domainName.lastIndexOf('.'));
     }
 
-    logger.w('FullUrl name is $fullUrl');
-    logger.w('Domain name is $domainName');
-
-    logger.v('RegisterHub have been called');
+    logger.w('Hub fullUrl name is $fullUrl');
+    logger.w('Hub domain name is $domainName');
 
     try {
       final StreamController<RequestsAndStatusFromHub> hubRequests =
