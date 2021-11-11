@@ -69,7 +69,7 @@ class SmartServerU extends CbjHubServiceBase {
       //   }
       // });
     } catch (e) {
-      logger.e('Client Client error $e');
+      logger.e('Client Client error\n$e');
     }
   }
 
@@ -135,7 +135,7 @@ class SmartServerU extends CbjHubServiceBase {
       //   }
       // });
     } catch (e) {
-      logger.e('Register Hub error $e');
+      logger.e('Register Hub error\n$e');
     }
   }
 
