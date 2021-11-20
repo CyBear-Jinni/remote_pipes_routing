@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:grpc/grpc.dart';
-import 'package:remote_pipes_router/domain/hub_client/remote_pipes_client.dart';
+import 'package:remote_pipes_router/infrastructure/gen/cbj_hub_server/proto_gen_date.dart';
 import 'package:remote_pipes_router/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:remote_pipes_router/infrastructure/hub_client/remote_pipes_client.dart';
 import 'package:remote_pipes_router/utils.dart';
 
 /// This class get what to execute straight from the grpc request,
@@ -162,5 +164,28 @@ class SmartServerU extends CbjHubServiceBase {
     } catch (e) {
       logger.e('Server error $e');
     }
+  }
+
+  @override
+  Future<CompHubInfo> getCompHubInfo(
+    ServiceCall call,
+    CompHubInfo request,
+  ) async {
+    logger.i('Hub info got requested');
+
+    final CbjHubIno cbjHubIno = CbjHubIno(
+      deviceName: 'cbj Hub',
+      protoLastGenDate: hubServerProtocGenDate,
+    );
+
+    final CompHubSpecs compHubSpecs = CompHubSpecs(
+      compOs: Platform.operatingSystem,
+    );
+
+    final CompHubInfo compHubInfo = CompHubInfo(
+      cbjInfo: cbjHubIno,
+      compSpecs: compHubSpecs,
+    );
+    return compHubInfo;
   }
 }

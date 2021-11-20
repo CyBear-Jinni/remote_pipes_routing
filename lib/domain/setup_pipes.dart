@@ -1,4 +1,4 @@
-import 'package:remote_pipes_router/domain/hube_server/smart_server_u.dart';
+import 'package:remote_pipes_router/infrastructure/hube_server/smart_server_u.dart';
 
 /// Class to run the project and that will setup all the needed functions and
 /// setups for the project to run correctly
