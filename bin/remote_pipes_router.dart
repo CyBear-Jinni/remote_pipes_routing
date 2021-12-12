@@ -1,6 +1,9 @@
-import 'package:remote_pipes_router/setup_pipes.dart';
+import 'package:remote_pipes_router/domain/setup_pipes.dart';
+import 'package:remote_pipes_router/utils.dart';
 
 Future<void> main(List<String> arguments) async {
+  logger.i('Current Remote Pipes Router environment name: prod');
+
   // final ServerSocket server =
   //     await ServerSocket.bind(InternetAddress.anyIPv4, 5004);
   //
