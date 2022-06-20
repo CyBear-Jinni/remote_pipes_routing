@@ -4,7 +4,7 @@ version: 1.0.0
 homepage: https://cybearjinni.com
 
 environment:
-  sdk: ^2.15.1
+  sdk: ^2.17.1
 
 
 dependencies:
@@ -12,9 +12,9 @@ dependencies:
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
   # Runtime library for protocol buffers support.
-  protobuf: ^2.0.1
+  protobuf: ^2.1.0
   # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^3.0.5
+  uuid: ^3.0.6
 
 
 dev_dependencies:
