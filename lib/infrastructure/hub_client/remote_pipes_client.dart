@@ -23,7 +23,7 @@ class RemotePipesClient {
 
     try {
       /// Transfer all requests from hub to the remote pipes->app
-      response = stub.hubTransferDevices(hubRequestsController.stream);
+      response = stub.hubTransferEntities(hubRequestsController.stream);
 
       /// All responses from the app->remote pipes going int the hub
       clientRequestsController.addStream(response);
@@ -50,7 +50,7 @@ class RemotePipesClient {
 
     try {
       /// Transfer all requests from client to the remote pipes->app
-      response = stub.clientTransferDevices(clientRequestsController.stream);
+      response = stub.clientTransferEntities(clientRequestsController.stream);
 
       /// All responses from the hub->remote pipes going int the client
       hubRequestsController.addStream(response);
