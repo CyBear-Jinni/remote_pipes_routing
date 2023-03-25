@@ -10,7 +10,7 @@ import 'package:remote_pipes_router/utils.dart';
 /// This class get what to execute straight from the grpc request,
 class SmartServerU extends CbjHubServiceBase {
   @override
-  Stream<RequestsAndStatusFromHub> clientTransferDevices(
+  Stream<RequestsAndStatusFromHub> clientTransferEntities(
     ServiceCall call,
     Stream<ClientStatusRequests> request,
   ) async* {
@@ -76,7 +76,7 @@ class SmartServerU extends CbjHubServiceBase {
   }
 
   @override
-  Stream<ClientStatusRequests> hubTransferDevices(
+  Stream<ClientStatusRequests> hubTransferEntities(
     ServiceCall call,
     Stream<RequestsAndStatusFromHub> request,
   ) async* {
@@ -174,7 +174,7 @@ class SmartServerU extends CbjHubServiceBase {
     logger.i('Hub info got requested');
 
     final CbjHubIno cbjHubIno = CbjHubIno(
-      deviceName: 'cbj Remote Pipes Routing',
+      entityName: 'cbj Remote Pipes Routing',
       protoLastGenDate: hubServerProtocGenDate,
       dartSdkVersion: Platform.version,
     );
