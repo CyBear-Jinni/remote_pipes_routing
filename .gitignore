@@ -38,3 +38,6 @@ token.json
 
 # melos
 pubspec_overrides.yaml
+
+# Linux
+.directory
