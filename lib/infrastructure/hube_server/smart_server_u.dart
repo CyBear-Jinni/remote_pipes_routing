@@ -14,7 +14,7 @@ class SmartServerU extends CbjHubServiceBase {
     ServiceCall call,
     Stream<ClientStatusRequests> request,
   ) async* {
-    logger.v('RegisterClient have been called');
+    logger.t('RegisterClient have been called');
 
     final Map<String, String>? metadata = call.clientMetadata;
     final String fullUrl = metadata![':authority']!;
@@ -65,7 +65,7 @@ class SmartServerU extends CbjHubServiceBase {
       yield* hubRequests.stream;
       //     .handleError((error) {
       //   if (error is GrpcError && error.code == 1) {
-      //     logger.v('Client have disconnected');
+      //     logger.t('Client have disconnected');
       //   } else {
       //     logger.e('Client stream error: $error');
       //   }
@@ -80,7 +80,7 @@ class SmartServerU extends CbjHubServiceBase {
     ServiceCall call,
     Stream<RequestsAndStatusFromHub> request,
   ) async* {
-    logger.v('RegisterHub have been called');
+    logger.t('RegisterHub have been called');
 
     final Map<String, String>? a = call.clientMetadata;
     final String fullUrl = a![':authority']!;
@@ -131,7 +131,7 @@ class SmartServerU extends CbjHubServiceBase {
       yield* clientRequests.stream;
       //     .handleError((error) {
       //   if (error is GrpcError && error.code == 1) {
-      //     logger.v('Hub have disconnected');
+      //     logger.t('Hub have disconnected');
       //   } else {
       //     logger.e('Hub stream error: $error');
       //   }
@@ -143,7 +143,7 @@ class SmartServerU extends CbjHubServiceBase {
 
   ///  Listening to port and deciding what to do with the response
   void waitForConnection() {
-    logger.v('Wait for connection');
+    logger.t('Wait for connection');
 
     final SmartServerU smartServer = SmartServerU();
     smartServer.startListen(); // Will go throw the model with the
@@ -160,7 +160,7 @@ class SmartServerU extends CbjHubServiceBase {
     try {
       final server = Server([SmartServerU()]);
       await server.serve(port: 50056);
-      logger.v('Server listening on port ${server.port}...');
+      logger.t('Server listening on port ${server.port}...');
     } catch (e) {
       logger.e('Server error $e');
     }
