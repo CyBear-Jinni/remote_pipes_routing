@@ -35,3 +35,6 @@ token.json
 
 # MacOS garbage
 .DS_Store
+
+# melos
+pubspec_overrides.yaml
