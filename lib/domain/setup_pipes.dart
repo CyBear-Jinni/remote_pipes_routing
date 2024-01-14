@@ -4,7 +4,7 @@ import 'package:remote_pipes_router/infrastructure/hube_server/smart_server_u.da
 /// setups for the project to run correctly
 class SetupPipes {
   /// First function in the program
-  Future<void> main() async {
+  Future main() async {
     final SmartServerU smartServerU = SmartServerU();
     smartServerU.startLocalServer();
   }

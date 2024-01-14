@@ -1,7 +1,7 @@
 import 'package:remote_pipes_router/domain/setup_pipes.dart';
 import 'package:remote_pipes_router/utils.dart';
 
-Future<void> main(List<String> arguments) async {
+Future main(List<String> arguments) async {
   logger.i('Current Remote Pipes Router environment name: prod');
 
   // final ServerSocket server =

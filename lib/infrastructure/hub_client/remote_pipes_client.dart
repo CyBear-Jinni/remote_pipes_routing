@@ -7,7 +7,7 @@ import 'package:remote_pipes_router/utils.dart';
 /// Functions to create Remote Pipes clients for the app and for the hub
 class RemotePipesClient {
   /// Create a hub stream with the Remote Pipes
-  static Future<void> createHubStreamWithRemotePipes(
+  static Future createHubStreamWithRemotePipes(
     String addressToHub,
     int hubPort,
     StreamController<ClientStatusRequests> clientRequestsController,
@@ -34,7 +34,7 @@ class RemotePipesClient {
   }
 
   /// Create a client stream with the Remote Pipes
-  static Future<void> createClientStreamWithRemotePipes(
+  static Future createClientStreamWithRemotePipes(
     String addressToHub,
     int hubPort,
     StreamController<RequestsAndStatusFromHub> hubRequestsController,

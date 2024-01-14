@@ -151,7 +151,7 @@ class SmartServerU extends CbjHubServiceBase {
   }
 
   ///  Listening in the background to incoming connections
-  Future<void> startListen() async {
+  Future startListen() async {
     await startLocalServer();
   }
 
